@@ -5,7 +5,7 @@
         public App()
         {
             InitializeComponent();
-
+            Services.DataRepo.Init();
             MainPage = new AppShell();
         }
     }
