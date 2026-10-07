@@ -11,6 +11,7 @@ namespace testproject.Services
     {
         static List<Song> songlst = new List<Song>();
         static Dictionary<string, Genre> genres = new Dictionary<string, Genre>();
+        static List<User> users = new List<User>();
 
         // Fake Data For Testing before we learn about DataBase
         public static void Init()
@@ -48,6 +49,23 @@ namespace testproject.Services
         public static List<Song> GetSongs()
         {
             return songlst;
+        }
+        public static List<User> GetUsers()
+        {
+            return users;
+        }
+        public static bool RegisterNewUser(string name, string email, string password, DateTime birthday)
+        {
+            User foundUser = users.Find(user => user.Email.ToLower() == email.ToLower());
+            if (foundUser == null)
+            {
+                users.Add(new User() { Name = name, Email = email, Password = password, BirthDate = birthday });
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
