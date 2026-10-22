@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace testproject.Models
 {
-    internal class Genre
+    public class Genre
     {
         public required string Name { get; set; }
         public required string Icon { get; set; }
         public required Color Color { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -11,9 +11,10 @@
                     <DataTemplate>
                         <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
                             <StackLayout>
-                                <Image Source="{Binding Icon}" Aspect="AspectFill" HeightRequest="200"/>
+                                <Image Source="{Binding Icon}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
                                 <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
                                 <Label Text="{Binding Artist}" FontSize="14"/>
+                                <Button Clicked="ShowSongInfo" Text="detailed information" />
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

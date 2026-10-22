@@ -11,4 +11,12 @@ public partial class CoLView : ContentPage
         BindingContext = this;	
         InitializeComponent();
 	}
+
+    private async void ShowSongInfo(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+        Song song = (Song)button.BindingContext;
+        string genres = string.Join(", ", song.Genres);
+        await DisplayAlert("Song Info", $"Name: {song.Name}\nArtist: {song.Artist}\nGenres: {genres}\nDuration: {song.Duration} seconds", "OK");
+    }
 }
