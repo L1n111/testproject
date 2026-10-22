@@ -19,6 +19,10 @@
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
+    <ShellContent
+        Title="CoLView"
+        ContentTemplate="{DataTemplate local:CoLView}"
+        Route="CoLView" />
 
 
 </Shell>

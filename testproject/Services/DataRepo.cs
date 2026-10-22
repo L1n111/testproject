@@ -23,16 +23,16 @@ namespace testproject.Services
             AddGenre("Shoegaze", new Genre() { Name = "Shoegaze", Icon = "*", Color = Colors.Orange });
             AddGenre("AltRock", new Genre() { Name = "AltRock", Icon = "*", Color = Colors.Yellow });
 
-            AddSong(new Song() { Name = "Cherry Waves", Duration = 120, Artist = "Deftones", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
-            AddSong(new Song() { Name = "Be Quiet and Drive (Far Away)", Duration = 308, Artist = "Deftones", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
-            AddSong(new Song() { Name = "Stressed Out", Duration = 202, Artist = "Twenty One Pilots", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "gladiator", Duration = 175, Artist = "Kai Angel", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
-            AddSong(new Song() { Name = "Everlong", Duration = 250, Artist = "Foo Fighters", Genres = new List<Genre>() { genres["Rock"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "Do I Wanna Know?", Duration = 263, Artist = "Arctic Monkeys", Genres = new List<Genre>() { genres["Indie"], genres["Rock"] } });
-            AddSong(new Song() { Name = "Alright", Duration = 219, Artist = "Kendrick Lamar", Genres = new List<Genre>() { genres["Rap"], genres["Jazz"] } });
-            AddSong(new Song() { Name = "Lose Yourself", Duration = 321, Artist = "Eminem", Genres = new List<Genre>() { genres["Rap"], genres["Rock"] } });
-            AddSong(new Song() { Name = "The Less I Know The Better", Duration = 219, Artist = "Tame Impala", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "HUMBLE.", Duration = 177, Artist = "Kendrick Lamar", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
+            AddSong(new Song() { Name = "Cherry Waves", Duration = 120, Artist = "Deftones", Icon = "cherrywaves.jpg", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
+            AddSong(new Song() { Name = "Be Quiet and Drive (Far Away)", Duration = 308, Artist = "Deftones", Icon = "bequietanddrive.jfif", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
+            AddSong(new Song() { Name = "Stressed Out", Duration = 202, Artist = "Twenty One Pilots", Icon = "stressedout.jfif", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
+            AddSong(new Song() { Name = "gladiator", Duration = 175, Artist = "Kai Angel", Icon = "gladiator.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
+            AddSong(new Song() { Name = "Everlong", Duration = 250, Artist = "Foo Fighters", Icon = "everlong.jfif", Genres = new List<Genre>() { genres["Rock"], genres["AltRock"] } });
+            AddSong(new Song() { Name = "Do I Wanna Know?", Duration = 263, Artist = "Arctic Monkeys", Icon = "doiwannaknow.jfif", Genres = new List<Genre>() { genres["Indie"], genres["Rock"] } });
+            AddSong(new Song() { Name = "Alright", Duration = 219, Artist = "Kendrick Lamar", Icon = "alright.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Jazz"] } });
+            AddSong(new Song() { Name = "Lose Yourself", Duration = 321, Artist = "Eminem", Icon = "loseyourself.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Rock"] } });
+            AddSong(new Song() { Name = "The Less I Know The Better", Duration = 219, Artist = "Tame Impala", Icon = "thelessiknowthebetter.jpeg", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
+            AddSong(new Song() { Name = "HUMBLE.", Duration = 177, Artist = "Kendrick Lamar", Icon = "humble.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
         }
         public static void AddSong(Song song)
         {
