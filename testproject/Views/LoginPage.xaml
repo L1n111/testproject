@@ -3,37 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="testproject.Views.LoginPage"
              Title="LoginPage">
+
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
 
             <Label Text="Login into your account" 
-           FontSize="28" 
-           FontAttributes="Bold" 
-           HorizontalOptions="Center" 
-           Margin="0,0,0,20"/>
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20"/>
 
-            <Label x:Name="ErrorLabel" 
-           TextColor="Red" 
-           FontSize="14" 
-           IsVisible="False" 
-           HorizontalOptions="Center"/>
+            <Label Text="{Binding ErrorMessage}" 
+                   IsVisible="{Binding IsErrorVisible}"
+                   TextColor="Red" 
+                   FontSize="14" 
+                   HorizontalOptions="Center"/>
 
-            <Entry x:Name="EmailEntry" 
-           Placeholder="Email" 
-           Keyboard="Email" 
-           ClearButtonVisibility="WhileEditing"/>
+            <Entry Text="{Binding Email}"
+                   Placeholder="Email" 
+                   Keyboard="Email" 
+                   ClearButtonVisibility="WhileEditing"/>
 
-            <Entry x:Name="PasswordEntry" 
-           Placeholder="Password" 
-           IsPassword="True" 
-           ClearButtonVisibility="WhileEditing"/>
+            <Entry Text="{Binding Password}"
+                   Placeholder="Password" 
+                   IsPassword="True" 
+                   ClearButtonVisibility="WhileEditing"/>
 
             <Button Text="Sign In" 
-            BackgroundColor="Navy" 
-            TextColor="White" 
-            CornerRadius="8"
-            Margin="0,20,0,0"
-            Clicked="OnSignInClicked"/>
+                    Command="{Binding SignInCommand}"
+                    BackgroundColor="Navy" 
+                    TextColor="White" 
+                    CornerRadius="8"
+                    Margin="0,20,0,0"/>
 
         </VerticalStackLayout>
     </ScrollView>
