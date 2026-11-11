@@ -46,7 +46,7 @@ public partial class RegisterPage : ContentPage
         }
         if (DataRepo.RegisterNewUser(name, email, password, birthDate))
         {
-            ShowError("User created");
+            ShowError("User created >~<");
         }
         else
         {
