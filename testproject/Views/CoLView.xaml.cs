@@ -1,13 +1,15 @@
 namespace testproject.Views;
 using testproject.Models;
 using testproject.Services;
+using System.Collections.ObjectModel;
 
 public partial class CoLView : ContentPage
 {
-	public List<Song> songs { get; set; } 
+	public ObservableCollection<Song> Songs { get; set; } 
     public CoLView()
 	{
-		songs = DataRepo.GetSongs();
+        var songslst = DataRepo.GetSongs();
+        Songs = new ObservableCollection<Song>(songslst);
         BindingContext = this;	
         InitializeComponent();
 	}

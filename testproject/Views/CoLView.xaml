@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout>
             <CollectionView x:Name="MyCollectionView"
-                            ItemsSource="{Binding songs}">
+                            ItemsSource="{Binding Songs}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
