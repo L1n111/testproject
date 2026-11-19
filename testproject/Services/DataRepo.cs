@@ -16,55 +16,55 @@ namespace testproject.Services
         // Fake Data For Testing before we learn about DataBase
         public static void Init()
         {
-            AddGenre("Rock", new Genre() { Name = "Rock", Icon = "*", Color = Colors.Blue });
-            AddGenre("Indie", new Genre() { Name = "Indie", Icon = "*", Color = Colors.Green });
-            AddGenre("Jazz", new Genre() { Name = "Jazz", Icon = "*", Color = Colors.Purple });
-            AddGenre("Rap", new Genre() { Name = "Rap", Icon = "*", Color = Colors.Red });
-            AddGenre("Shoegaze", new Genre() { Name = "Shoegaze", Icon = "*", Color = Colors.Orange });
-            AddGenre("AltRock", new Genre() { Name = "AltRock", Icon = "*", Color = Colors.Yellow });
+            AddGenreAsync("Rock", new Genre() { Name = "Rock", Icon = "*", Color = Colors.Blue });
+            AddGenreAsync("Indie", new Genre() { Name = "Indie", Icon = "*", Color = Colors.Green });
+            AddGenreAsync("Jazz", new Genre() { Name = "Jazz", Icon = "*", Color = Colors.Purple });
+            AddGenreAsync("Rap", new Genre() { Name = "Rap", Icon = "*", Color = Colors.Red });
+            AddGenreAsync("Shoegaze", new Genre() { Name = "Shoegaze", Icon = "*", Color = Colors.Orange });
+            AddGenreAsync("AltRock", new Genre() { Name = "AltRock", Icon = "*", Color = Colors.Yellow });
 
-            AddSong(new Song() { Name = "Cherry Waves", Duration = 120, Artist = "Deftones", Icon = "cherrywaves.jpg", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
-            AddSong(new Song() { Name = "Be Quiet and Drive (Far Away)", Duration = 308, Artist = "Deftones", Icon = "bequietanddrive.jfif", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
-            AddSong(new Song() { Name = "Stressed Out", Duration = 202, Artist = "Twenty One Pilots", Icon = "stressedout.jfif", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "gladiator", Duration = 175, Artist = "Kai Angel", Icon = "gladiator.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
-            AddSong(new Song() { Name = "Everlong", Duration = 250, Artist = "Foo Fighters", Icon = "everlong.jfif", Genres = new List<Genre>() { genres["Rock"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "Do I Wanna Know?", Duration = 263, Artist = "Arctic Monkeys", Icon = "doiwannaknow.jfif", Genres = new List<Genre>() { genres["Indie"], genres["Rock"] } });
-            AddSong(new Song() { Name = "Alright", Duration = 219, Artist = "Kendrick Lamar", Icon = "alright.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Jazz"] } });
-            AddSong(new Song() { Name = "Lose Yourself", Duration = 321, Artist = "Eminem", Icon = "loseyourself.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Rock"] } });
-            AddSong(new Song() { Name = "The Less I Know The Better", Duration = 219, Artist = "Tame Impala", Icon = "thelessiknowthebetter.jpeg", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
-            AddSong(new Song() { Name = "HUMBLE.", Duration = 177, Artist = "Kendrick Lamar", Icon = "humble.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
+            AddSongAsync(new Song() { Name = "Cherry Waves", Duration = 120, Artist = "Deftones", Icon = "cherrywaves.jpg", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
+            AddSongAsync(new Song() { Name = "Be Quiet and Drive (Far Away)", Duration = 308, Artist = "Deftones", Icon = "bequietanddrive.jfif", Genres = new List<Genre>() { genres["AltRock"], genres["Shoegaze"] } });
+            AddSongAsync(new Song() { Name = "Stressed Out", Duration = 202, Artist = "Twenty One Pilots", Icon = "stressedout.jfif", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
+            AddSongAsync(new Song() { Name = "gladiator", Duration = 175, Artist = "Kai Angel", Icon = "gladiator.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
+            AddSongAsync(new Song() { Name = "Everlong", Duration = 250, Artist = "Foo Fighters", Icon = "everlong.jfif", Genres = new List<Genre>() { genres["Rock"], genres["AltRock"] } });
+            AddSongAsync(new Song() { Name = "Do I Wanna Know?", Duration = 263, Artist = "Arctic Monkeys", Icon = "doiwannaknow.jfif", Genres = new List<Genre>() { genres["Indie"], genres["Rock"] } });
+            AddSongAsync(new Song() { Name = "Alright", Duration = 219, Artist = "Kendrick Lamar", Icon = "alright.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Jazz"] } });
+            AddSongAsync(new Song() { Name = "Lose Yourself", Duration = 321, Artist = "Eminem", Icon = "loseyourself.jpg", Genres = new List<Genre>() { genres["Rap"], genres["Rock"] } });
+            AddSongAsync(new Song() { Name = "The Less I Know The Better", Duration = 219, Artist = "Tame Impala", Icon = "thelessiknowthebetter.jpeg", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
+            AddSongAsync(new Song() { Name = "HUMBLE.", Duration = 177, Artist = "Kendrick Lamar", Icon = "humble.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
         }
-        public static void AddSong(Song song)
+        public static async void AddSongAsync(Song song)
         {
             songlst.Add(song);
         }
-        public static void AddGenre(string key, Genre genre)
+        public static async void AddGenreAsync(string key, Genre genre)
         {
             genres.Add(key, genre);
         }
-        public static Dictionary<string, Genre> GetGenres()
+        public Task<Dictionary<string, Genre>> GetGenresAsync()
         {
-            return genres;
+            return Task.FromResult(genres);
         }
-        public static List<Song> GetSongs()
+        public Task<List<Song>> GetSongsAsync()
         {
-            return songlst;
+            return Task.FromResult(songlst);
         }
-        public static List<User> GetUsers()
+        public Task<List<User>> GetUsersAsync()
         {
-            return users;
+            return Task.FromResult(users);
         }
-        public static bool RegisterNewUser(string name, string email, string password, DateTime birthday)
+        public Task<bool> RegisterNewUserAsync(string name, string email, string password, DateTime birthday)
         {
             User foundUser = users.Find(user => user.Email.ToLower() == email.ToLower());
             if (foundUser == null)
             {
                 users.Add(new User() { Name = name, Email = email, Password = password, BirthDate = birthday });
-                return true;
+                return Task.FromResult(true);
             }
             else
             {
-                return false;
+                return Task.FromResult(false);
             }
         }
     }

@@ -8,6 +8,7 @@ namespace testproject.ViewModels
 {
     internal class RegisterPageViewModel : ViewModelBase
     {
+        public DataRepo _repo = new DataRepo();
         public ICommand RegisterCommand { get; set; }
         public RegisterPageViewModel()
         {
@@ -121,7 +122,7 @@ namespace testproject.ViewModels
                 return;
             }
 
-            if (DataRepo.RegisterNewUser(Name, Email, Password, BirthDate))
+            if (await _repo.RegisterNewUserAsync(Name, Email, Password, BirthDate))
             {
                 await Shell.Current.DisplayAlert("Success", "Account created successfully!", " >~< ");
             }

@@ -11,7 +11,7 @@ namespace testproject.ViewModels
 {
     internal class LoginPageViewModel : ViewModelBase
     {
-
+        public DataRepo _repo = new DataRepo();
         public ICommand SignInCommand { get; set; }
         public LoginPageViewModel()
         {
@@ -59,9 +59,9 @@ namespace testproject.ViewModels
             }
         }
 
-        private void SignIn()
+        private async void SignIn()
         {
-            var users = DataRepo.GetUsers();
+            var users = await _repo.GetUsersAsync();
             if (string.IsNullOrEmpty(Email) ||
                 string.IsNullOrEmpty(Password))
             {

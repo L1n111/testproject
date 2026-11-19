@@ -5,15 +5,20 @@ using System.Collections.ObjectModel;
 
 public partial class CoLView : ContentPage
 {
+    private DataRepo _repo = new DataRepo();
 	public ObservableCollection<Song> Songs { get; set; } 
     public CoLView()
 	{
-        var songslst = DataRepo.GetSongs();
-        Songs = new ObservableCollection<Song>(songslst);
+        LoadSongs();
         BindingContext = this;	
         InitializeComponent();
 	}
 
+    private async void LoadSongs()
+    {
+        var songslst = await _repo.GetSongsAsync();
+        Songs = new ObservableCollection<Song>(songslst);
+    }
     private async void ShowSongInfo(object sender, EventArgs e)
     {
         Button button = (Button)sender;
