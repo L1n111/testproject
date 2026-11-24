@@ -8,10 +8,6 @@
     Title="testproject">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    <ShellContent
         Title="Register"
         ContentTemplate="{DataTemplate local:RegisterPage}"
         Route="RegisterPage" />

@@ -42,19 +42,19 @@ namespace testproject.Services
         {
             genres.Add(key, genre);
         }
-        public Task<Dictionary<string, Genre>> GetGenresAsync()
+        public static Task<Dictionary<string, Genre>> GetGenresAsync()
         {
             return Task.FromResult(genres);
         }
-        public Task<List<Song>> GetSongsAsync()
+        public static Task<List<Song>> GetSongsAsync()
         {
             return Task.FromResult(songlst);
         }
-        public Task<List<User>> GetUsersAsync()
+        public static Task<List<User>> GetUsersAsync()
         {
             return Task.FromResult(users);
         }
-        public Task<bool> RegisterNewUserAsync(string name, string email, string password, DateTime birthday)
+        public static Task<bool> RegisterNewUserAsync(string name, string email, string password, DateTime birthday)
         {
             User foundUser = users.Find(user => user.Email.ToLower() == email.ToLower());
             if (foundUser == null)

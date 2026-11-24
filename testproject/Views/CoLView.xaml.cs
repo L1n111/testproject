@@ -16,7 +16,7 @@ public partial class CoLView : ContentPage
 
     private async void LoadSongs()
     {
-        var songslst = await _repo.GetSongsAsync();
+        var songslst = await DataRepo.GetSongsAsync();
         Songs = new ObservableCollection<Song>(songslst);
     }
     private async void ShowSongInfo(object sender, EventArgs e)
