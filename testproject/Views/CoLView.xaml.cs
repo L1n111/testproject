@@ -1,22 +1,17 @@
 namespace testproject.Views;
+using System.Collections.ObjectModel;
 using testproject.Models;
 using testproject.Services;
-using System.Collections.ObjectModel;
+using testproject.ViewModels;
 
 public partial class CoLView : ContentPage
 {
-	public ObservableCollection<Song> Songs { get; set; } 
+    CoLViewViewModel vm;
     public CoLView()
 	{
-        LoadSongs();
-        BindingContext = this;	
         InitializeComponent();
-	}
-
-    private async void LoadSongs()
-    {
-        var songslst = await DataRepo.GetSongsAsync();
-        Songs = new ObservableCollection<Song>(songslst);
+        vm = new CoLViewViewModel();
+        BindingContext = vm;
     }
     private async void ShowSongInfo(object sender, EventArgs e)
     {

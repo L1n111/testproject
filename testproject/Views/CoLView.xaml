@@ -6,16 +6,43 @@
     <ScrollView>
         <VerticalStackLayout>
             <CollectionView x:Name="MyCollectionView"
-                            ItemsSource="{Binding Songs}">
+                ItemsSource="{Binding Songs}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                         Span="2"
+                         HorizontalItemSpacing="8"
+                         VerticalItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
-                            <StackLayout>
-                                <Image Source="{Binding Icon}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding Artist}" FontSize="14"/>
-                                <Button Clicked="ShowSongInfo" Text="detailed information" />
-                            </StackLayout>
+                        <Frame BorderColor="Gray"
+                   CornerRadius="8"
+                   Padding="10"
+                   Margin="0">
+                            <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                                <Image Source="{Binding Icon}"
+                           Aspect="AspectFill"
+                           HeightRequest="90"
+                           WidthRequest="90"
+                           HorizontalOptions="Center" />
+                                <Label Text="{Binding Name}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="1" />
+                                <Label Text="{Binding Artist}"
+                           FontSize="13"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="1" />
+                                <Button Clicked="ShowSongInfo"
+                            Text="detailed information"
+                            FontSize="12"
+                            Padding="8,4"
+                            HorizontalOptions="Center" />
+                            </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
