@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 
 public partial class CoLView : ContentPage
 {
-    private DataRepo _repo = new DataRepo();
 	public ObservableCollection<Song> Songs { get; set; } 
     public CoLView()
 	{
