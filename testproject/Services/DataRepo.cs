@@ -34,37 +34,43 @@ namespace testproject.Services
             AddSongAsync(new Song() { Name = "The Less I Know The Better", Duration = 219, Artist = "Tame Impala", Icon = "thelessiknowthebetter.jpeg", Genres = new List<Genre>() { genres["Indie"], genres["AltRock"] } });
             AddSongAsync(new Song() { Name = "HUMBLE.", Duration = 177, Artist = "Kendrick Lamar", Icon = "humble.png", Genres = new List<Genre>() { genres["Rap"], genres["Indie"] } });
         }
-        public static async void AddSongAsync(Song song)
+        public static async Task<bool> AddSongAsync(Song song)
         {
             songlst.Add(song);
+            return true;
         }
+        public static async Task<bool> RemoveSongAsync(Song song)
+        {
+            songlst.Remove(song);
+            return true;
+        }   
         public static async void AddGenreAsync(string key, Genre genre)
         {
             genres.Add(key, genre);
         }
-        public static Task<Dictionary<string, Genre>> GetGenresAsync()
+        public static Dictionary<string, Genre> GetGenresAsync()
         {
-            return Task.FromResult(genres);
+            return genres;
         }
-        public static Task<List<Song>> GetSongsAsync()
+        public static async Task<List<Song>> GetSongsAsync()
         {
-            return Task.FromResult(songlst);
+            return songlst;
         }
-        public static Task<List<User>> GetUsersAsync()
+        public static async Task<List<User>> GetUsersAsync()
         {
-            return Task.FromResult(users);
+            return users;
         }
-        public static Task<bool> RegisterNewUserAsync(string name, string email, string password, DateTime birthday)
+        public static async Task<bool> RegisterNewUserAsync(string name, string email, string password, DateTime birthday)
         {
             User foundUser = users.Find(user => user.Email.ToLower() == email.ToLower());
             if (foundUser == null)
             {
                 users.Add(new User() { Name = name, Email = email, Password = password, BirthDate = birthday });
-                return Task.FromResult(true);
+                return true;
             }
             else
             {
-                return Task.FromResult(false);
+                return false;
             }
         }
     }

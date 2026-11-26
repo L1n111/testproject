@@ -8,13 +8,13 @@
     Title="testproject">
 
     <ShellContent
-        Title="Register"
-        ContentTemplate="{DataTemplate local:RegisterPage}"
-        Route="RegisterPage" />
-    <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
+    <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Route="RegisterPage" />
     <ShellContent
         Title="CoLView"
         ContentTemplate="{DataTemplate local:CoLView}"

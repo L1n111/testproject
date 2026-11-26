@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using testproject.Models;
 using testproject.Services;
+using testproject.Views;
 
 namespace testproject.ViewModels
 {
     internal class LoginPageViewModel : ViewModelBase
     {
         public ICommand SignInCommand { get; set; }
+        public ICommand GoToRegister { get; set; }
         public LoginPageViewModel()
         {
             SignInCommand = new Command(SignIn);
+            GoToRegister = new Command(GoToRegisterAsync);
         }
         private string _email;
         public string Email
@@ -70,7 +73,7 @@ namespace testproject.ViewModels
             User foundUser = users.FirstOrDefault(u => u.Email.Equals(Email));
             if (foundUser != null && foundUser.Password == Password)
             {
-                ShowError("Login successful :3");
+                await Shell.Current.GoToAsync($"//{nameof(CoLView)}"); ;
             }
             else
             {
@@ -81,6 +84,10 @@ namespace testproject.ViewModels
         {
             ErrorMessage = message;
             IsErrorVisible = true; // Makes the label appear
+        }
+        private async void GoToRegisterAsync()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
     }
 }

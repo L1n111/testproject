@@ -35,7 +35,18 @@
                     TextColor="White" 
                     CornerRadius="8"
                     Margin="0,20,0,0"/>
-
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="4">
+                <Label Text="Don't have an account?" FontSize="14" TextColor="Gray" VerticalOptions="Center" />
+                <Button Text="Register"
+                    Command="{Binding GoToRegister}"
+                    FontSize="14"
+                    Padding="8,2"
+                    MinimumHeightRequest="0"
+                    BackgroundColor="LightBlue"
+                    TextColor="Navy"
+                    CornerRadius="8"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
